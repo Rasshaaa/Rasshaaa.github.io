@@ -1,0 +1,364 @@
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Style */
+html {
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.stop-scrolling {
+    overflow: hidden;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    height: 4em;
+    transition: 1s ease-in-out;
+}
+
+.brand {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+}
+
+.brand:hover {
+    background-color: crimson;
+    border-radius: 5px;
+}
+
+.nama:hover {
+    color: black;
+}
+
+.nama {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    padding: .12em .3em;
+    transition: .3s ease-in-out;
+}
+
+.brand img {
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    border: 3px solid #ef4b3f;
+    margin: 0.3em;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: .3s ease-in-out;
+}
+
+.list a {
+    margin: 0.2em;
+    padding: .9em 1em;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s ease;
+}
+
+.list a:hover {
+    color: black;
+    background-color: crimson;
+    border-radius: 5px;
+}
+
+.icon-menu {
+    --gap: 5px;
+    --height-bar: 2.5px;
+    --pos-y-bar-one: 0;
+    --pos-y-bar-three: 0;
+    --scale-bar: 1;
+    --rotate-bar-one: 0;
+    --rotate-bar-three: 0;
+    width: 25px;
+    display: none;
+    flex-direction: column;
+    gap: var(--gap);
+    cursor: pointer;
+    position: relative;
+}
+
+.bar {
+    position: relative;
+    height: var(--height-bar);
+    width: 100%;
+    border-radius: .5rem;
+    background-color: #eeeeee;
+}
+
+.bar--1 {
+    top: var(--pos-y-bar-one);
+    transform: rotate(var(--rotate-bar-one));
+    transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+    transform: scaleX(var(--scale-bar));
+    transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+    bottom: var(--pos-y-bar-three);
+    transform: rotate(var(--rotate-bar-three));
+    transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+    transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+    transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+    --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+    --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+    --scale-bar: 0;
+    --rotate-bar-one: 45deg;
+    --rotate-bar-three: -45deg;
+}
+
+.home, .about, .achievement {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.home h1 {
+    font-size: 5em;
+    font-weight: 600;
+}
+
+.home h4 {
+    font-size: 1.2em;
+    margin-bottom: .5em;
+}
+
+.btn {
+    display: flex;
+    padding: 0.6rem 1rem;
+    font-size: 1em;
+    font-weight: 700;
+    color: crimson;
+    border: 3px solid crimson;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
+    border-radius: 50px;
+    gap: 1em;
+}
+  
+.btn:hover {
+    color: black;
+    transition: .3s ease-in;
+}
+   
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: crimson;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+}
+   
+.btn:hover::before {
+    transform: translateX(0);
+}
+
+.about h2, .achievement h2 {
+    font-size: 3em;
+}
+
+.about p {
+    width: 60%;
+}
+
+.achievement h5 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.achievement-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.achievement-content h6 {
+    font-size: 1.5em;
+}
+
+.achievement-content div {
+    padding: 1em;
+}
+
+/* Responsive Breakpoint */
+/* Laptop */
+@media (max-width: 991px) {
+    html {
+      font-size: 75%;
+    }
+}
+  
+@media (max-width: 768px) {
+    html {
+      font-size: 62.5%;
+    }
+
+    .navbar {
+        position: sticky;
+    }
+  
+    .icon-menu {
+      display: flex;
+    }
+  
+    .list {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 0;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, .6);
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: .5s ease;
+    }
+  
+    .list a {
+      padding: 1em 100%;
+      margin: 0;
+      font-size: 1.3em;
+      opacity: 0;
+      transform: translateY(-50px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: .3s ease;
+    }
+  
+    .check-icon:checked~.list {
+      height: 15.5rem;
+    }
+  
+    .check-icon:checked~.list a {
+      transition-delay: calc(.15s * var(--i));
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+  
+@media (max-width: 576px) {
+    html {
+      font-size: 60%;
+    }
+
+    .navbar {
+        position: sticky;
+    }
+}
+  
+@media (max-width: 430px) {
+    html {
+      font-size: 55%;
+    }
+
+    .navbar {
+        position: sticky;
+    }
+}
