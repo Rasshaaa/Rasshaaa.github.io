@@ -8,8 +8,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -23,7 +23,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -232,12 +232,12 @@ html::-webkit-scrollbar {
     border-radius: 50px;
     gap: 1em;
 }
-  
+
 .btn:hover {
     color: black;
     transition: .3s ease-in;
 }
-   
+
 .btn::before {
     content: "";
     position: absolute;
@@ -250,7 +250,7 @@ html::-webkit-scrollbar {
     transition: all .3s;
     z-index: -1;
 }
-   
+
 .btn:hover::before {
     transform: translateX(0);
 }
@@ -289,7 +289,7 @@ html::-webkit-scrollbar {
       font-size: 75%;
     }
 }
-  
+
 @media (max-width: 768px) {
     html {
       font-size: 62.5%;
@@ -298,11 +298,11 @@ html::-webkit-scrollbar {
     .navbar {
         position: sticky;
     }
-  
+
     .icon-menu {
       display: flex;
     }
-  
+
     .list {
       display: flex;
       flex-direction: column;
@@ -318,7 +318,7 @@ html::-webkit-scrollbar {
       text-align: center;
       transition: .5s ease;
     }
-  
+
     .list a {
       padding: 1em 100%;
       margin: 0;
@@ -331,18 +331,18 @@ html::-webkit-scrollbar {
       text-align: center;
       transition: .3s ease;
     }
-  
+
     .check-icon:checked~.list {
       height: 15.5rem;
     }
-  
+
     .check-icon:checked~.list a {
       transition-delay: calc(.15s * var(--i));
       opacity: 1;
       transform: translateY(0);
     }
 }
-  
+
 @media (max-width: 576px) {
     html {
       font-size: 60%;
@@ -352,7 +352,7 @@ html::-webkit-scrollbar {
         position: sticky;
     }
 }
-  
+
 @media (max-width: 430px) {
     html {
       font-size: 55%;
@@ -361,4 +361,41 @@ html::-webkit-scrollbar {
     .navbar {
         position: sticky;
     }
+}
+
+/* Portfolio additions: projects, contact, and mobile navigation. */
+.projects, .contact {
+    padding: 6rem 1.5rem;
+    text-align: center;
+    line-height: 1.6;
+}
+.projects h2, .contact h2 { font-size: 3em; margin-bottom: 1rem; }
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 820px;
+    margin: 2.5rem auto;
+    gap: 1.5rem;
+    text-align: left;
+}
+.project-grid article { border: 1px solid #dedede; padding: 1.5rem; }
+.project-grid h3 { font-size: 1.35rem; font-weight: bold; overflow-wrap: anywhere; }
+.project-grid p { margin-top: 0.6rem; overflow-wrap: anywhere; }
+.project-blog-link, .contact a { color: crimson; }
+.contact { min-height: 45vh; background: #fafafa; }
+.contact p { margin: 0.5rem 0; }
+.contact code { overflow-wrap: anywhere; }
+.check-icon { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.check-icon:focus-visible + .icon-menu { outline: 2px solid crimson; outline-offset: 7px; }
+@media (min-width: 769px) { .check-icon { display: none; } }
+@media (max-width: 768px) {
+    .check-icon:checked ~ .list { height: 25rem; }
+    .list a { width: 100%; padding: 1.2em 1em; }
+    .project-grid { grid-template-columns: 1fr; }
+    .about p { width: min(90%, 44rem); }
+    .home, .about, .achievement { min-height: 100vh; height: auto; padding: 6rem 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn::before, .list, .list a { transition: none; }
 }

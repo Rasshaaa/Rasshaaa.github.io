@@ -1,0 +1,12 @@
+title: "Rassha | Blog"
+description: "Technical notes, projects, and CTF writeups."
+url: "https://rasshaaa.github.io"
+baseurl: ""
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+kramdown:
+  input: GFM
+exclude:
+  - apply_changes.py
+  - PORTFOLIO_SETUP.md

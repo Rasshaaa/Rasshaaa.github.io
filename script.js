@@ -18,13 +18,22 @@ if (history.scrollRestoration) {
 }
 
 // Enable Scroll via add class list
-function enableScroll() { 
+function enableScroll() {
     document.body.classList.remove("stop-scrolling");
-    rootElement.style.scrollBehavior = 'smooth';
+    document.documentElement.style.scrollBehavior = 'smooth';
 }
 
 // Initialize Animate on Scroll (AOS)
-AOS.init();
+if (window.AOS) AOS.init();
 
 // Rellax Setup
-var rellax = new Rellax('.rellax');
+if (window.Rellax) new Rellax('.rellax');
+
+/* Unlock section links and close the mobile menu. */
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', () => {
+        enableScroll();
+        const menu = document.getElementById('check-icon');
+        if (menu) menu.checked = false;
+    });
+});

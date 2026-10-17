@@ -1,0 +1,52 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CTF writeups, technical notes, and blog posts.">
+    <title>Blog &amp; Writeups | Rassha</title>
+    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="blog-nav" aria-label="Main navigation">
+            <a class="brand" href="{{ '/' | relative_url }}">Rassha</a>
+            <div class="nav-links">
+                <a href="{{ '/' | relative_url }}">Portfolio</a>
+                <a href="{{ '/blog/' | relative_url }}" aria-current="page">Blog</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <div class="page-intro">
+            <p class="eyebrow">Notes / Research / CTF</p>
+            <h1>Blog &amp; Writeups</h1>
+            <p>CTF writeups, security research, infrastructure notes, and things worth documenting.</p>
+        </div>
+
+        <section aria-label="Articles" class="post-list">
+            {% if site.posts.size == 0 %}
+            <p>No posts yet. Add your first Markdown file to <code>_posts/</code>.</p>
+            {% else %}
+            {% for post in site.posts %}
+            <article class="post-preview">
+                <p class="post-meta">
+                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d %b %Y' }}</time>
+                    {% if post.categories.size > 0 %}<span aria-hidden="true"> · </span>{{ post.categories | join: ' / ' | escape }}{% endif %}
+                </p>
+                <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+                <p>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 190 | escape }}</p>
+                <a class="read-link" href="{{ post.url | relative_url }}">Read post <span aria-hidden="true">→</span></a>
+            </article>
+            {% endfor %}
+            {% endif %}
+        </section>
+    </main>
+
+    <footer class="site-footer">Built with Jekyll on GitHub Pages.</footer>
+</body>
+</html>

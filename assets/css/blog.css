@@ -1,0 +1,93 @@
+:root {
+    color-scheme: light;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #242424;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; line-height: 1.65; }
+a { color: #b51235; text-underline-offset: 3px; }
+a:hover { color: #760b20; }
+a:focus-visible { outline: 2px solid crimson; outline-offset: 4px; }
+
+.site-header { background: #222; color: #fff; }
+.blog-nav {
+    max-width: 960px;
+    min-height: 64px;
+    margin: auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+.blog-nav a { color: #fff; text-decoration: none; }
+.blog-nav a:hover, .blog-nav a[aria-current] { color: #ff8ba3; }
+.brand { font-weight: 700; font-size: 1.35rem; }
+.nav-links { display: flex; gap: 24px; }
+
+.page-container { width: min(100% - 40px, 800px); margin: 0 auto; padding: 54px 0 80px; }
+.page-intro { margin-bottom: 45px; }
+.eyebrow { color: #ab1636; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+h1, h2, h3, h4 { line-height: 1.25; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); margin: 12px 0 18px; }
+h2 { font-size: 1.55rem; }
+.page-intro > p:last-child, .article-description { color: #555; }
+.post-preview { padding: 24px 0 30px; border-top: 1px solid #dedede; }
+.post-preview h2 { margin: 8px 0 10px; }
+.post-preview h2 a { color: #242424; text-decoration: none; }
+.post-preview h2 a:hover { color: #b51235; }
+.post-preview > p { margin: 9px 0 14px; }
+.post-meta { font-size: 0.88rem; color: #676767; margin: 0; }
+.read-link, .back-link, .end-link a { font-weight: 600; }
+.site-footer { border-top: 1px solid #e4e4e4; text-align: center; padding: 22px; font-size: 0.85rem; color: #6b6b6b; }
+
+.article-header { margin-top: 24px; padding-bottom: 26px; border-bottom: 1px solid #dedede; }
+.article-header h1 { margin: 10px 0 12px; }
+.post-body { padding-top: 26px; overflow-wrap: anywhere; }
+.post-body h2 { margin: 38px 0 14px; }
+.post-body h3 { margin: 28px 0 12px; }
+.post-body p, .post-body ul, .post-body ol { margin: 0 0 18px; }
+.post-body ul, .post-body ol { padding-left: 26px; }
+.post-body ul { list-style: disc; }
+.post-body ol { list-style: decimal; }
+.post-body li { margin: 4px 0; }
+.post-body img { display: block; max-width: 100%; height: auto; margin: 22px 0; border: 1px solid #ddd; }
+.post-body blockquote { margin: 22px 0; padding: 5px 18px; border-left: 4px solid crimson; color: #5b5b5b; background: #fafafa; }
+.post-body blockquote > :last-child { margin-bottom: 0; }
+.post-body code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
+.post-body pre, .post-body .highlight {
+    max-width: 100%;
+    overflow-x: auto;
+    background: #222;
+    color: #f3f3f3;
+    border-radius: 4px;
+}
+.post-body pre { padding: 18px 20px; margin: 18px 0; line-height: 1.6; }
+.post-body .highlight pre { margin: 0; }
+.post-body pre code { color: inherit; background: transparent; padding: 0; }
+.post-body .highlight code { color: inherit; background: transparent; padding: 0; }
+.post-body table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; margin: 22px 0; }
+.post-body th, .post-body td { border: 1px solid #ddd; padding: 10px 14px; text-align: left; }
+.post-body th { background: #f3f3f3; }
+.post-body hr { border: 0; border-top: 1px solid #ddd; margin: 34px 0; }
+.end-link { margin-top: 45px; }
+
+/* Rouge / Jekyll syntax highlighting on dark code blocks. */
+.highlight .c, .highlight .c1, .highlight .cm { color: #aaa; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .ow { color: #ff91ac; }
+.highlight .s, .highlight .s1, .highlight .s2 { color: #a8d6a8; }
+.highlight .mi, .highlight .mf { color: #f3ca83; }
+.highlight .nf, .highlight .nb { color: #9ed8ff; }
+
+@media (max-width: 600px) {
+    .page-container { padding-top: 36px; }
+    .blog-nav { padding: 12px 20px; }
+    .nav-links { gap: 16px; }
+    .post-body pre { font-size: 0.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}

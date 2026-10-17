@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img" aria-labelledby="title desc">
+  <title id="title">Screenshot placeholder</title>
+  <desc id="desc">Example terminal-style image, to be replaced with a real writeup screenshot.</desc>
+  <rect width="1000" height="440" fill="#202124"/>
+  <rect width="1000" height="45" fill="#303136"/>
+  <circle cx="27" cy="23" r="8" fill="#db625f"/>
+  <circle cx="53" cy="23" r="8" fill="#d9ad51"/>
+  <circle cx="79" cy="23" r="8" fill="#65a56a"/>
+  <g font-family="monospace" font-size="25" fill="#d8d8d8">
+    <text x="40" y="107">$ python3 solve.py</text>
+    <text x="40" y="165" fill="#9abf9a">[example output redacted]</text>
+    <text x="40" y="225">Replace this image with your screenshot.</text>
+    <text x="40" y="355" fill="#9a9da3">assets/images/writeups/</text>
+  </g>
+</svg>

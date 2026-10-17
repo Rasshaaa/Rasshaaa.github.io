@@ -21,21 +21,21 @@
     <!-- Navigation Bar (2 side) -->
     <nav class="navbar">
         <span class="brand">
-        <img src="" alt="" data-aos="fade-right" data-aos-duration="500">
+        <img src="assets/images/avatar-placeholder.svg" alt="Profile placeholder" data-aos="fade-right" data-aos-duration="500">
         <div class="nama">
             <h2 data-aos="fade-right" data-aos-delay="100" data-aos-duration="500">Rassha</h2>
             <h2 data-aos="fade-right" data-aos-delay="200" data-aos-duration="500">Maulana</h2>
         </div>
         </span>
 
-        <input hidden="" class="check-icon" id="check-icon" name="check-icon" type="checkbox">
+        <input class="check-icon" id="check-icon" name="check-icon" type="checkbox" aria-label="Toggle navigation" aria-controls="primary-navigation">
         <label class="icon-menu" for="check-icon" data-aos="fade-left">
             <div class="bar bar--1"></div>
             <div class="bar bar--2"></div>
             <div class="bar bar--3"></div>
         </label>
-        
-        <ul class="list">
+
+        <ul class="list" id="primary-navigation">
             <a href="#Home" style="--i:0;">
                 <span data-aos="fade-left">HOME</span>
             </a>
@@ -45,8 +45,14 @@
             <a href="#Achievement" style="--i:2;">
                 <span data-aos="fade-left" data-aos-delay="200" data-aos-duration="500">ACHIEVEMENT</span>
             </a>
-            <a href="#Contact" style="--i:3;">
+                        <a href="#Projects" style="--i:3;">
+                <span>PROJECTS</span>
+            </a>
+            <a href="#Contact" style="--i:4;">
                 <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="500">CONTACT</span>
+            </a>
+            <a href="blog/" style="--i:5;">
+                <span>BLOG</span>
             </a>
         </ul>
     </nav>
@@ -73,6 +79,30 @@
                 <p>Soon (Aamiin) but still coping smh🥴 For now still just participating and keep losing so hard smh.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Projects (replace placeholders with your own projects) -->
+    <section class="projects" id="Projects">
+        <h2>Projects</h2>
+        <p>A few things I've worked on. Details will be updated here.</p>
+        <div class="project-grid">
+            <article>
+                <h3>[REDACTED_PROJECT_1]</h3>
+                <p>[REDACTED_PROJECT_DESCRIPTION]</p>
+            </article>
+            <article>
+                <h3>[REDACTED_PROJECT_2]</h3>
+                <p>[REDACTED_PROJECT_DESCRIPTION]</p>
+            </article>
+        </div>
+        <a class="project-blog-link" href="blog/">Read my blog and CTF writeups →</a>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="Contact">
+        <h2>Contact</h2>
+        <p>Email: <code>[REDACTED_EMAIL]</code></p>
+        <p>GitHub: <a href="https://github.com/Rasshaaa" target="_blank" rel="noopener noreferrer">github.com/Rasshaaa</a></p>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
