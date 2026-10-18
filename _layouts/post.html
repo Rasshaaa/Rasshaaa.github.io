@@ -1,41 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ page.description | default: site.description | escape }}">
-    <title>{{ page.title | escape }} | Rassha</title>
-    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
-</head>
-<body>
-    <header class="site-header">
-        <nav class="blog-nav" aria-label="Main navigation">
-            <a class="brand" href="{{ '/' | relative_url }}">Rassha</a>
-            <div class="nav-links">
-                <a href="{{ '/' | relative_url }}">Portfolio</a>
-                <a href="{{ '/blog/' | relative_url }}">Blog</a>
-            </div>
-        </nav>
+---
+layout: default
+---
+{% include nav.html %}
+<main id="main-content" class="post-page">
+  <article class="post container">
+    <header class="post-header">
+      <a class="back-link" href="{{ '/blog/' | relative_url }}">&larr; All posts</a>
+      <p class="eyebrow">{{ page.category | default: 'Notes' }} / {{ page.date | date: "%d %b %Y" }}</p>
+      <h1>{{ page.title }}</h1>
+      <p class="post-deck">{{ page.description }}</p>
+      <ul class="inline-tags">{% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
     </header>
 
-    <main class="page-container">
-        <a class="back-link" href="{{ '/blog/' | relative_url }}">← All posts</a>
-        <article>
-            <header class="article-header">
-                <p class="post-meta">
-                    <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d %b %Y' }}</time>
-                    {% if page.categories.size > 0 %}<span aria-hidden="true"> · </span>{{ page.categories | join: ' / ' | escape }}{% endif %}
-                </p>
-                <h1>{{ page.title | escape }}</h1>
-                {% if page.description %}<p class="article-description">{{ page.description | escape }}</p>{% endif %}
-            </header>
-            <div class="post-body">
-                {{ content }}
-            </div>
-        </article>
-        <p class="end-link"><a href="{{ '/blog/' | relative_url }}">← Back to blog</a></p>
-    </main>
+    <div class="post-content">
+      {{ content }}
+    </div>
 
-    <footer class="site-footer">Built with Jekyll on GitHub Pages.</footer>
-</body>
-</html>
+    <footer class="post-bottom">
+      <span>End of note.</span>
+      <a class="text-link" href="{{ '/blog/' | relative_url }}">&larr; Back to all posts</a>
+    </footer>
+  </article>
+</main>

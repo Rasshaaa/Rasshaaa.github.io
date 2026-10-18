@@ -1,0 +1,23 @@
+<nav class="navbar" aria-label="Main navigation">
+  <div class="nav-inner container">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Rassha, home">
+      <span class="brand-mark" aria-hidden="true">R.</span>
+      <span class="brand-name">{{ site.data.profile.short_name }}</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="{{ '/' | relative_url }}#Home">Home</a></li>
+      <li><a href="{{ '/' | relative_url }}#About">About</a></li>
+      <li><a href="{{ '/' | relative_url }}#Projects">Projects</a></li>
+      <li><a href="{{ '/' | relative_url }}#Achievement">Achievements</a></li>
+      <li><a href="{{ '/blog/' | relative_url }}"{% if page.url contains '/blog/' %} aria-current="page"{% endif %}>Blog</a></li>
+      <li><a href="{{ '/' | relative_url }}#Contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>

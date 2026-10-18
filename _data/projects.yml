@@ -1,0 +1,24 @@
+# Replace these examples with projects you can publicly describe.
+- number: "01"
+  title: "[REDACTED] Infrastructure Lab"
+  category: Infrastructure / Homelab
+  description: Add an overview, what you built, your responsibilities, and the technical result.
+  stack: "Linux / Virtualization / Networking"
+  url: ""
+  label: Private details pending
+
+- number: "02"
+  title: "[REDACTED] Security Research"
+  category: Cybersecurity / Research
+  description: Add the problem, your approach, the tools used, and a link to an authorized public report.
+  stack: "Python / Security Testing"
+  url: ""
+  label: Details pending
+
+- number: "03"
+  title: "[REDACTED] Automation Project"
+  category: Scripting / Engineering
+  description: Describe the workflow you automated, why it mattered, and what improved.
+  stack: "Python / Bash / Git"
+  url: ""
+  label: Details pending

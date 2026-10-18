@@ -1,0 +1,8 @@
+# Local Jekyll build files
+_site/
+.jekyll-cache/
+.sass-cache/
+.bundle/
+vendor/
+Gemfile.lock
+.DS_Store

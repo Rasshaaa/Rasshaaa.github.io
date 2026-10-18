@@ -1,52 +1,34 @@
 ---
-layout: null
+layout: default
+title: Blog & Writeups
+description: Technical posts, cybersecurity writeups, and engineering notes from Rassha.
+permalink: /blog/
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CTF writeups, technical notes, and blog posts.">
-    <title>Blog &amp; Writeups | Rassha</title>
-    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
-</head>
-<body>
-    <header class="site-header">
-        <nav class="blog-nav" aria-label="Main navigation">
-            <a class="brand" href="{{ '/' | relative_url }}">Rassha</a>
-            <div class="nav-links">
-                <a href="{{ '/' | relative_url }}">Portfolio</a>
-                <a href="{{ '/blog/' | relative_url }}" aria-current="page">Blog</a>
-            </div>
-        </nav>
-    </header>
+{% include nav.html %}
+<main id="main-content" class="blog-page">
+  <header class="page-heading container" data-aos="fade-up">
+    <p class="eyebrow">/ BLOG &amp; WRITEUPS</p>
+    <h1>Notes from <span class="accent">the lab.</span></h1>
+    <p>CTF writeups, experiments, technical notes, and everything worth documenting.</p>
+    <div class="blog-toolbar">
+      <label for="post-search">Find a post</label>
+      <input id="post-search" type="search" placeholder="Search titles, tags, or descriptions..." autocomplete="off">
+      <span id="post-count" aria-live="polite">{{ site.posts.size }} posts</span>
+    </div>
+  </header>
 
-    <main class="page-container">
-        <div class="page-intro">
-            <p class="eyebrow">Notes / Research / CTF</p>
-            <h1>Blog &amp; Writeups</h1>
-            <p>CTF writeups, security research, infrastructure notes, and things worth documenting.</p>
-        </div>
-
-        <section aria-label="Articles" class="post-list">
-            {% if site.posts.size == 0 %}
-            <p>No posts yet. Add your first Markdown file to <code>_posts/</code>.</p>
-            {% else %}
-            {% for post in site.posts %}
-            <article class="post-preview">
-                <p class="post-meta">
-                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d %b %Y' }}</time>
-                    {% if post.categories.size > 0 %}<span aria-hidden="true"> · </span>{{ post.categories | join: ' / ' | escape }}{% endif %}
-                </p>
-                <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
-                <p>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 190 | escape }}</p>
-                <a class="read-link" href="{{ post.url | relative_url }}">Read post <span aria-hidden="true">→</span></a>
-            </article>
-            {% endfor %}
-            {% endif %}
-        </section>
-    </main>
-
-    <footer class="site-footer">Built with Jekyll on GitHub Pages.</footer>
-</body>
-</html>
+  <section class="container blog-list" aria-label="All blog posts">
+    {% for post in site.posts %}
+    <article class="blog-list-item" data-search="{{ post.title | downcase | escape }} {{ post.description | downcase | escape }} {{ post.tags | join: ' ' | downcase | escape }}">
+      <div class="blog-date">{{ post.date | date: "%d %b %Y" }}<span>{{ post.category | default: "Notes" }}</span></div>
+      <div class="blog-info">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.description }}</p>
+        <ul class="inline-tags">{% for tag in post.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+      </div>
+      <a class="blog-visit" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}">&nearr;</a>
+    </article>
+    {% endfor %}
+    <p class="empty-search" id="empty-search" hidden>No posts match that search.</p>
+  </section>
+</main>

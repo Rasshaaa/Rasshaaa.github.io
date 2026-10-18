@@ -1,0 +1,22 @@
+# Areas and topics are editable examples, not skill-level claims.
+- group: Infrastructure
+  note: Systems, networks, and operations
+  items:
+    - Linux
+    - Networking
+    - Containers
+    - Monitoring
+- group: Security
+  note: Understanding and testing attack surfaces
+  items:
+    - Web Security
+    - Capture The Flag
+    - Forensics
+    - Reverse Engineering
+- group: Engineering
+  note: Building practical tools
+  items:
+    - Python
+    - Bash
+    - Automation
+    - Git

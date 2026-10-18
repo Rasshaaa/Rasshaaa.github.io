@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+  <title id="title">Screenshot placeholder</title>
+  <desc id="desc">A blank terminal frame indicating where to add a screenshot</desc>
+  <rect width="960" height="480" fill="#1e2126"/>
+  <rect width="960" height="48" fill="#30343a"/>
+  <circle cx="28" cy="24" r="7" fill="#d55d62"/>
+  <circle cx="52" cy="24" r="7" fill="#dbbb70"/>
+  <circle cx="76" cy="24" r="7" fill="#6cad8d"/>
+  <g fill="#dadde2" font-family="monospace" font-size="22">
+    <text x="38" y="112">$ ./your-command</text>
+    <text x="38" y="166" fill="#a6b5ae">[REDACTED OUTPUT]</text>
+    <text x="38" y="220">_</text>
+  </g>
+  <text x="480" y="406" text-anchor="middle" fill="#a0a5ad" font-size="18" font-family="sans-serif">Replace with your own screenshot</text>
+</svg>

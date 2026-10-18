@@ -1,39 +1,96 @@
-// Disable Scroll via add class list
-function disableScroll() {
-    document.body.classList.add("stop-scrolling");
+// Shared site behavior: navigation, simple blog search, and scroll animations.
+
+document.addEventListener("DOMContentLoaded", () => {
+    const year = document.querySelector("#year");
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+
+    setupNavigation();
+    setupBlogSearch();
+    setupAnimations();
+});
+
+function setupNavigation() {
+    const menuButton = document.querySelector(".nav-toggle");
+    const links = document.querySelector(".nav-links");
+    const navbar = document.querySelector(".navbar");
+
+    if (!menuButton || !links || !navbar) {
+        return;
+    }
+
+    function closeMenu() {
+        links.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+    }
+
+    menuButton.addEventListener("click", () => {
+        const isOpen = links.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    links.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!navbar.contains(event.target)) {
+            closeMenu();
+        }
+    });
 }
 
-// Agar disable scroll saat posisi scroll berada pada titik 0 (teratas)
-if(window.scrollY == 0) {
-    disableScroll();
+function setupBlogSearch() {
+    const search = document.querySelector("#post-search");
+    const posts = Array.from(document.querySelectorAll(".blog-list-item"));
+    const counter = document.querySelector("#post-count");
+    const emptyMessage = document.querySelector("#empty-search");
+
+    if (!search || !counter || !emptyMessage) {
+        return;
+    }
+
+    search.addEventListener("input", () => {
+        const query = search.value.trim().toLowerCase();
+        let visible = 0;
+
+        posts.forEach((post) => {
+            const matches = post.dataset.search.includes(query);
+            post.hidden = !matches;
+
+            if (matches) {
+                visible++;
+            }
+        });
+
+        counter.textContent = `${visible} ${visible === 1 ? "post" : "posts"}`;
+        emptyMessage.hidden = visible !== 0;
+    });
 }
 
-// Agar saat reload page di section lain auto pergi ke section awal
-if (history.scrollRestoration) {
-    history.scrollRestoration = 'manual';
-} else {
-    window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
+function setupAnimations() {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (typeof AOS !== "undefined") {
+        AOS.init({
+            duration: reducedMotion ? 0 : 650,
+            once: true,
+            offset: 55,
+            disable: reducedMotion
+        });
+    }
+
+    if (!reducedMotion && window.innerWidth > 800 && typeof Rellax !== "undefined") {
+        new Rellax(".rellax", {
+            center: true
+        });
     }
 }
-
-// Enable Scroll via add class list
-function enableScroll() {
-    document.body.classList.remove("stop-scrolling");
-    document.documentElement.style.scrollBehavior = 'smooth';
-}
-
-// Initialize Animate on Scroll (AOS)
-if (window.AOS) AOS.init();
-
-// Rellax Setup
-if (window.Rellax) new Rellax('.rellax');
-
-/* Unlock section links and close the mobile menu. */
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener('click', () => {
-        enableScroll();
-        const menu = document.getElementById('check-icon');
-        if (menu) menu.checked = false;
-    });
-});
