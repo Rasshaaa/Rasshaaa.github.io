@@ -2,7 +2,7 @@
 - group: Infrastructure
   note: Systems, networks, and operations
   items:
-    - Linux
+    - Linux Server & Windows Server
     - Networking
     - Containers
     - Monitoring
@@ -10,8 +10,8 @@
   note: Understanding and testing attack surfaces
   items:
     - Web Security
-    - Capture The Flag
-    - Forensics
+    - Hardening Linux & Windows Server
+    - Binary Exploitation (pwn)
     - Reverse Engineering
 - group: Engineering
   note: Building practical tools
